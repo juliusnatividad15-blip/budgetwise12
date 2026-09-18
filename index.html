@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reclaimed Cycles — Bike Part Restoration Workshop</title>
+<meta name="description" content="A workshop that strips, cleans and rebuilds used bike parts for a second life on the road.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Hidden checkboxes driving all interaction — pure CSS, no JS -->
+<input type="checkbox" id="theme-toggle-cb" class="hidden-toggle">
+<input type="checkbox" id="nav-toggle-cb" class="hidden-toggle">
+
+<div class="page">
+
+  <!-- FIXED HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#top" class="logo">
+        <i class="fa-solid fa-gear logo-gear" aria-hidden="true"></i>
+        <span>RECLAIMED<em>CYCLES</em></span>
+      </a>
+
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#process">Restorations</a></li>
+          <li><a href="#stories">Stories</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-controls">
+        <label for="theme-toggle-cb" class="icon-btn theme-label" title="Toggle theme">
+          <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
+          <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+          <span class="sr-only">Toggle dark mode</span>
+        </label>
+        <label for="nav-toggle-cb" class="icon-btn nav-burger" title="Open menu">
+          <i class="fa-solid fa-bars icon-bars" aria-hidden="true"></i>
+          <i class="fa-solid fa-xmark icon-close" aria-hidden="true"></i>
+          <span class="sr-only">Open menu</span>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <img class="hero-img" src="https://images.unsplash.com/photo-1517654443271-ac57bf6d5f34?auto=format&fit=crop&w=1600&q=80" alt="Close-up of a rebuilt road bike drivetrain and crankset">
+      <div class="hero-copy">
+        <p class="eyebrow">Est. workshop &middot; Second-hand parts, first-class rides</p>
+        <h1>Every part still has one more ride in it.</h1>
+        <p class="hero-sub">We strip, clean, true and re-grease used groupsets, wheels and frames — then tag each one with exactly what we found, so you know precisely what you're rolling on.</p>
+        <div class="hero-actions">
+          <a href="#shop" class="btn btn-primary">Browse the bench</a>
+          <a href="#process" class="btn btn-ghost">See how we rebuild</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" aria-labelledby="about-heading">
+      <div class="about-grid">
+        <figure class="about-figure">
+          <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=900&q=80" alt="Workshop wall hung with wrenches and bike tools">
+          <figcaption>The bench where every part gets a second look.</figcaption>
+        </figure>
+        <div class="about-text">
+          <h2 id="about-heading">Nothing here started new.</h2>
+          <p>Reclaimed Cycles began on a marketplace listing, not a shop floor — a single loose derailleur, cleaned up and sold to a neighbor who needed it more than the drawer did. It's grown into a small bench of regulars who'd rather rebuild a part than replace it.</p>
+          <p>Every listing below started life on someone else's bike. We inspect it, rate its condition honestly, and price it like it still has work to do — because it does.</p>
+          <ul class="about-stats">
+            <li><strong>420+</strong><span>parts rebuilt</span></li>
+            <li><strong>8/10</strong><span>avg. condition rating</span></li>
+            <li><strong>0</strong><span>parts landfilled</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOP / GALLERY -->
+    <section class="shop" id="shop" aria-labelledby="shop-heading">
+      <div class="section-head">
+        <h2 id="shop-heading">From the bench this week</h2>
+        <p>Filter by what you're hunting for. Every tag is the honest condition, not a sales pitch.</p>
+      </div>
+
+      <!-- filter radios: hidden inputs, siblings of .filter-bar and .part-grid so CSS can react to :checked -->
+      <input type="radio" name="filter" id="filter-all" class="filter-radio" checked>
+      <input type="radio" name="filter" id="filter-drivetrain" class="filter-radio">
+      <input type="radio" name="filter" id="filter-wheels" class="filter-radio">
+      <input type="radio" name="filter" id="filter-cockpit" class="filter-radio">
+      <input type="radio" name="filter" id="filter-frame" class="filter-radio">
+
+      <div class="filter-bar" role="group" aria-label="Filter parts by category">
+        <label for="filter-all" class="filter-btn">All</label>
+        <label for="filter-drivetrain" class="filter-btn">Drivetrain</label>
+        <label for="filter-wheels" class="filter-btn">Wheels</label>
+        <label for="filter-cockpit" class="filter-btn">Cockpit</label>
+        <label for="filter-frame" class="filter-btn">Frame</label>
+      </div>
+
+      <div class="part-grid" id="part-grid">
+
+        <article class="part-card" data-category="drivetrain">
+          <div class="part-media">
+            <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=700&q=80" alt="Rebuilt rear derailleur and cassette, cleaned and re-greased">
+          </div>
+          <div class="part-tag">
+            <span class="tag-punch" aria-hidden="true"></span>
+            <h3>9-Speed Rear Derailleur</h3>
+            <dl class="spec-list">
+              <div><dt>Cond.</dt><dd>8/10</dd></div>
+              <div><dt>Category</dt><dd>Drivetrain</dd></div>
+              <div><dt>Reground</dt><dd>Pulleys + spring</dd></div>
+            </dl>
+            <p class="part-price">₱950</p>
+          </div>
+        </article>
+
+        <article class="part-card" data-category="wheels">
+          <div class="part-media">
+            <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=700&q=80" alt="Rebuilt bicycle wheel with polished spokes and hub">
+          </div>
+          <div class="part-tag">
+            <span class="tag-punch" aria-hidden="true"></span>
+            <h3>700c Alloy Wheelset</h3>
+            <dl class="spec-list">
+              <div><dt>Cond.</dt><dd>9/10</dd></div>
+              <div><dt>Category</dt><dd>Wheels</dd></div>
+              <div><dt>Reground</dt><dd>Trued, hub serviced</dd></div>
+            </dl>
+            <p class="part-price">₱3,200</p>
+          </div>
+        </article>
+
+        <article class="part-card" data-category="cockpit">
+          <div class="part-media">
+            <img src="https://images.unsplash.com/photo-1544191696-102152b5da41?auto=format&fit=crop&w=700&q=80" alt="Restored handlebar and stem with fresh bar tape">
+          </div>
+          <div class="part-tag">
+            <span class="tag-punch" aria-hidden="true"></span>
+            <h3>Alloy Drop Bar + Stem</h3>
+            <dl class="spec-list">
+              <div><dt>Cond.</dt><dd>7/10</dd></div>
+              <div><dt>Category</dt><dd>Cockpit</dd></div>
+              <div><dt>Reground</dt><dd>New tape, degreased</dd></div>
+            </dl>
+            <p class="part-price">₱850</p>
+          </div>
+        </article>
+
+        <article class="part-card" data-category="frame">
+          <div class="part-media">
+            <img src="https://images.unsplash.com/photo-1571333250630-f0230c320b6d?auto=format&fit=crop&w=700&q=80" alt="Steel bike frame stripped and ready for repaint">
+          </div>
+          <div class="part-tag">
+            <span class="tag-punch" aria-hidden="true"></span>
+            <h3>Steel Road Frame, 54cm</h3>
+            <dl class="spec-list">
+              <div><dt>Cond.</dt><dd>6/10</dd></div>
+              <div><dt>Category</dt><dd>Frame</dd></div>
+              <div><dt>Reground</dt><dd>Rust-treated</dd></div>
+            </dl>
+            <p class="part-price">₱2,400</p>
+          </div>
+        </article>
+
+        <article class="part-card" data-category="drivetrain">
+          <div class="part-media">
+            <img src="https://images.unsplash.com/photo-1502744688674-c619d1586c9e?auto=format&fit=crop&w=700&q=80" alt="Bicycle crankset chainring detail on the workbench">
+          </div>
+          <div class="part-tag">
+            <span class="tag-punch" aria-hidden="true"></span>
+            <h3>170mm Crankset</h3>
+            <dl class="spec-list">
+              <div><dt>Cond.</dt><dd>8/10</dd></div>
+              <div><dt>Category</dt><dd>Drivetrain</dd></div>
+              <div><dt>Reground</dt><dd>Bottom bracket serviced</dd></div>
+            </dl>
+            <p class="part-price">₱1,600</p>
+          </div>
+        </article>
+
+        <article class="part-card" data-category="wheels">
+          <div class="part-media">
+            <img src="https://images.unsplash.com/photo-1571188654248-7a89213915f7?auto=format&fit=crop&w=700&q=80" alt="Cyclist riding on a rebuilt wheelset along a road">
+          </div>
+          <div class="part-tag">
+            <span class="tag-punch" aria-hidden="true"></span>
+            <h3>Disc Front Hub Wheel</h3>
+            <dl class="spec-list">
+              <div><dt>Cond.</dt><dd>9/10</dd></div>
+              <div><dt>Category</dt><dd>Wheels</dd></div>
+              <div><dt>Reground</dt><dd>New bearings</dd></div>
+            </dl>
+            <p class="part-price">₱1,950</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PROCESS / TIMELINE -->
+    <section class="process" id="process" aria-labelledby="process-heading">
+      <div class="section-head">
+        <h2 id="process-heading">How a part gets a second ride</h2>
+        <p>Same four passes on every listing, in this order, no shortcuts.</p>
+      </div>
+      <ol class="process-steps">
+        <li>
+          <span class="step-no">01</span>
+          <h3>Strip &amp; inspect</h3>
+          <p>Fully disassembled, every surface checked for cracks, corrosion or wear past spec.</p>
+        </li>
+        <li>
+          <span class="step-no">02</span>
+          <h3>Clean &amp; decontaminate</h3>
+          <p>Degreased, ultrasonic-bathed where needed, rust neutralized on steel parts.</p>
+        </li>
+        <li>
+          <span class="step-no">03</span>
+          <h3>Rebuild &amp; true</h3>
+          <p>Bearings, springs and pivots replaced or repacked; wheels trued to within 0.5mm.</p>
+        </li>
+        <li>
+          <span class="step-no">04</span>
+          <h3>Tag &amp; list</h3>
+          <p>Condition scored out of 10 and written on the tag — the same number you'll see in the listing.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- STORIES / TESTIMONIALS -->
+    <section class="stories" id="stories" aria-labelledby="stories-heading">
+      <div class="section-head light-on-dark">
+        <h2 id="stories-heading">From riders who bought off the bench</h2>
+      </div>
+      <div class="story-grid">
+        <blockquote class="story-card">
+          <p>"The derailleur came with more notes than the shop-new one I almost bought instead."</p>
+          <cite>— Mika, commuter rider</cite>
+        </blockquote>
+        <blockquote class="story-card">
+          <p>"Told me straight the frame was a 6/10 and why. No surprises when it arrived."</p>
+          <cite>— Dane, weekend racer</cite>
+        </blockquote>
+        <blockquote class="story-card">
+          <p>"Cheaper than new, and it's already broken in. My kind of upgrade."</p>
+          <cite>— Reyna, gravel rider</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- FAQ (native details/summary — no JS needed) -->
+    <section class="faq" id="faq" aria-labelledby="faq-heading">
+      <div class="section-head">
+        <h2 id="faq-heading">Before you message us</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How honest is the condition rating, really?</summary>
+          <p>It's the same number our own bench notes use. An 8/10 has cosmetic wear only; anything with a functional issue gets flagged in the listing, not buried in the number.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I request a part be rebuilt to spec?</summary>
+          <p>Yes — message us the part and your torque or fit requirements before we list it, and we'll rebuild to order where the part allows it.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you ship, or pickup only?</summary>
+          <p>Local meetups are preferred for wheels and frames so you can inspect true and alignment yourself; smaller drivetrain parts can ship.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Where do parts come from?</summary>
+          <p>Trade-ins, donated drawers, and bikes retired for parts — never anything reported stolen, and never a part we haven't opened up ourselves.</p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CONTACT / FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="logo footer-logo">
+          <i class="fa-solid fa-gear logo-gear" aria-hidden="true"></i>
+          <span>RECLAIMED<em>CYCLES</em></span>
+        </a>
+        <p>Bench-tested bike parts, honestly rated, listed for what they're really worth.</p>
+      </div>
+      <div>
+        <h4>Find our listings</h4>
+        <ul class="footer-links">
+          <li><a href="#"><i class="fa-brands fa-facebook" aria-hidden="true"></i> Facebook Marketplace</a></li>
+          <li><a href="#"><i class="fa-solid fa-tag" aria-hidden="true"></i> Carousell</a></li>
+          <li><a href="#shop"><i class="fa-solid fa-wrench" aria-hidden="true"></i> This week's bench</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Workshop</h4>
+        <ul class="footer-links">
+          <li><a href="#process">Restoration process</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#stories">Rider stories</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; 2026 Reclaimed Cycles. A student project — built to demonstrate responsive design.</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
